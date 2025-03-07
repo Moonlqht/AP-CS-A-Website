@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brian Zhang's ICS 4U Website</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('images/background.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="navbar">
+        <div class = "logo">
+            <a href = "index.html">Brian Zhang</a>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Tutorials</button>
+                    <div class="dropdown-content">
+                        <a href="oop.html">OOP</a>
+                        <a href="arrays.html">Arrays</a>
+                        <a href="arraylists.html">ArrayLists</a>
+                        <a href="searchsort.html">Search & Sort</a>
+                        <a href="recursion.html">Recursion</a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="references.html">References</a></li>
+            <li><a href = "competitiveProgramming.html">Competitive Programming</a></li>
+            <li><a href="aboutme.html">About me</a></li>
+        </ul>
+    </header>
+    <div class = "content">
+        <div class = "title">Arrays</div>
+        <div class = "box">
+            <div id = "full">
+                <p>If you were to store the information about all the students attending a school, how would you do it? It obviously seems impractical to create thousands of variables, one for each student. This is where arrays are useful! Arrays act as references to consecutive locations in memory, allowing you to treat each element of the array differently, but only requiring one variable to store all the data. </p>
+                <h1>Initializing and Accessing</h1>
+                <p>Below is the declaration, initialization, and accessing of an array. </p>
+                <div class = "code">
+                    <pre>
+ArrayType[] arrayName; // Declaration
+arrayName = new ArrayType[arrayLength]; // Initialization
+arrayName[index] // Accessing the index-th element. </pre>
+                </div>
+                <p>To make it convenient for the programmer, if you know all the elements you want to add to an array, you can initialize an array with an array literal. Below is an example. </p>
+                <div class = "code">
+                    <pre>
+String[] names = {"Brian", "Johnny", "Isaac", "Jeffrey", "Jonathan", "Daniel"};</pre>
+                </div>
+                <p>The default values of each element of an array will be the default value of that data type. That is, null for objects, 0 for ints, 0.0 for doubles, etc. To access any specific element, you can access it by putting the desired index in square brackets. It is important to remember that arrays are zero-indexed. This means that the first element is index 0, second index 1, etc, where the last one is the length of the array - 1. You can access the length of the array with the public instance variable length. </p>
+                <p>When creating an array, the Java compiler will only accept a 32-bit integer as the parameter, so if you would not be able to create an array with a length of 8 billion, one for each person on Earth. </p>
+                <h1>Potential Errors</h1>
+                <p>When you create or access an array with a data type that isn't an int, a TypeMismatchException will be thrown. However, what if you input a negative integer for array size or an index that isn't valid?</p>
+                <h2>NegativeArraySizeException</h2>
+                <p>This is an exception specifically thrown when trying to initialize an array size to a negative value. </p>
+                <h2>ArrayIndexOutOfBoundsException</h2>
+                <p>This is an exception thrown when trying to access an index of an array that is out of bounds, either greater than or equal to the size of the array, or a negative integer. </p>
+                <h1>Multidimensional Arrays</h1>
+                <p>Multidimensional arrays, to put simply, are arrays with more than one dimension. For instance, a 2D array is an array of arrays. </p>
+                <p>They are great when used to store many different aspects of data related to a singular group of people. For instance, we can have a 2D array to store the age, grade, ICS grade, number of absences, birth date, and birth month of a class of students. One dimension of the array would represent each student, while the other would represent each property of the student. </p>
+                <div id = "fullCentered">
+                    <img src = "images/2Darr.png">
+                </div>
+                <h1>Example</h1>
+                <p>For this unit, our assignment was to use parallel arrays to represent the data regarding the achievements of students running for Student Council. We would then print out the winner, along with their score calculated with our custom formula. Our program worked by storing data of the same person in the same index across all arrays, so it would sort of act as a 2D array, the same person index is used throughout all the sets of data. Below are some code snippets of the implementation.</p>
+                <h2>Declaration and Initialization</h2>
+                <div class = "code">
+                    <pre>
+private int PEOPLE; //Length
+private String[] name;
+private double[] gpa;
+private int[] volunteerHours;
+private String[] previousStudentCouncilPosition;
+private int[] grade;
+
+PEOPLE = 5;
+name = new String[PEOPLE];
+gpa = new double[PEOPLE];
+volunteerHours = new int[PEOPLE];
+previousStudentCouncilPosition = new String[PEOPLE];
+grade = new int[PEOPLE];</pre>
+                <h2>Accessing</h2>
+                <pre>
+for(int i = 0;i < PEOPLE;i++){
+    if(max < grade[i]){
+        max = grade[i];
+        bestPeople = "";
+        bestPeople+=i + "";
+    }else if(max == grade[i]){
+        bestPeople+=i + "";
+    }
+}</pre>
+                </div>
+                <h2>Output</h2>
+                <div class = "code">
+                    <pre>
+Name: Candidate B
+Grade: 11
+GPA: 96.80
+Volunteer Hours: 199
+Previous Position: N/A</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="website">ICS 4U Website</div>
+        <div class="signature">Created by Brian Zhang</div>
+    </footer>
+</body>
+<script>
+    document.addEventListener('scroll', () => {
+        const header = document.getElementById('navbar');
+        if(window.scrollY > 0){
+            header.classList.add('darken');
+        }else{
+            header.classList.remove('darken');
+        }
+    })
+</script>
+
+
+</html>

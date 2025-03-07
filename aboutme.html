@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brian Zhang's ICS 4U Website</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('images/background.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="navbar">
+        <div class = "logo">
+            <a href = "index.html">Brian Zhang</a>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Tutorials</button>
+                    <div class="dropdown-content">
+                        <a href="oop.html">OOP</a>
+                        <a href="arrays.html">Arrays</a>
+                        <a href="arraylists.html">ArrayLists</a>
+                        <a href="searchsort.html">Search & Sort</a>
+                        <a href="recursion.html">Recursion</a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="references.html">References</a></li>
+            <li><a href = "competitiveProgramming.html">Competitive Programming</a></li>
+            <li><a href="aboutme.html">About me</a></li>
+        </ul>
+    </header>
+    <div class = "content">
+        <div class = "title">Who am I?</div>
+        <div class = "box">
+            <div class = "top">
+                <p class = "brief">I'm a grade 10 student currently attending William Lyon Mackenzie C.I., with a passion for Math and Computer Science. </p>
+                <img src = "images/profilePic.jpg" class = "profile">
+            </div>
+            <div id = "full">
+                <h1>My Coding Experience</h1>
+                <p>I started off exclusively programming in Python, though I expanded my knowledge of languages to Java in 8th grade. In the future, I'd like to be more proficient in HTML/CSS/JS and start learning C++, a language that I heard is great when doing competitive programming. <a href = "https://dmoj.ca/user/Moonliqht/solved" target = "_blank">Here</a> is a link to my DMOJ profile. </p>
+            </div>
+            <div id = "fullCentered">
+                <img src = "images/python.png" id = "logos"></img>
+                <img src = "images/java.png" id = "logos"></img>
+            </div>
+            <div id = "full">
+                <h1>My Hobbies</h1>
+                <p>In my free time, I enjoy playing video games such as tetris and VALORANT. I also spend my free time doing math, either studying by myself or grading math homework for a tutoring school. Additionally, I love learning about technology, completing DMOJ problems in my free time and learning about hardware components. Besides video games and academics, I also play tennis, participating in my school's tennis team.</p>
+            </div>
+            <div id = "fullCentered">
+                <img src = "images/tennis.png" id = "hobbies"></img>
+                <img src = "images/tetrio.png" id = "hobbies"></img>
+                <img src = "images/valorant.png" id = "hobbies"></img>
+                <img src = "images/cms.png" id = "hobbies"></img>
+            </div>
+            <div id = "full">
+                <h1>Achievements</h1>
+                <p>The two computer science contests I have participated in so far are USACO and CCC. So far, I've achieved Silver division in USACO, along with perfect score on CCC Junior and 32 on CCC senior. Attached is a screenshot of my current USACO profile. </p>
+            </div>
+            <div id = "fullCentered">
+                <img src = "images/usaco.png">
+            </div>
+            <div id = "full">
+                <h1>Future Ambitions</h1>
+                <p>In the near future, I would like to do well on math and computer science contests. In the longer term, I hope to pursue a career in CS or math, such as becoming a software developer or data analyst. </p>
+            </div>
+            <div id = "fullCentered">
+                <img src = "images/future.png" id = "future"></img>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="website">ICS 4U Website</div>
+        <div class="signature">Created by Brian Zhang</div>
+    </footer>
+</body>
+<script>
+    document.addEventListener('scroll', () => {
+        const header = document.getElementById('navbar');
+        if(window.scrollY > 0){
+            header.classList.add('darken');
+        }else{
+            header.classList.remove('darken');
+        }
+    })
+</script>
+
+
+</html>

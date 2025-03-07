@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brian Zhang's ICS 4U Website</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('images/background.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="navbar">
+        <div class = "logo">
+            <a href = "index.html">Brian Zhang</a>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Tutorials</button>
+                    <div class="dropdown-content">
+                        <a href="oop.html">OOP</a>
+                        <a href="arrays.html">Arrays</a>
+                        <a href="arraylists.html">ArrayLists</a>
+                        <a href="searchsort.html">Search & Sort</a>
+                        <a href="recursion.html">Recursion</a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="references.html">References</a></li>
+            <li><a href = "competitiveProgramming.html">Competitive Programming</a></li>
+            <li><a href="aboutme.html">About me</a></li>
+        </ul>
+    </header>
+    <div class = "content">
+        <div class = "title">Enrichment</div>
+        <div class = "box">
+            <div id = "full">
+                <p>Competitive programming is a form of programming where the competitors try to solve a certain problem, with constraints of time and space. Although it uses programming to accomplish a task, the bulk of the solution is rooted in the thinking aspect, thinking of an efficient way to solve a problem. </p>
+                <h1>My Experience</h1>
+                <p>My experience with competitive programming started in late 2023 when I signed up for the CS2 class at TTMath school. At first, I disliked competitive programming due to its repetitive nature and learning syntax of a new language. However, once we got into complex data structure used to solve various programming problems and particpating in competitions such as USACO, I found enjoyment in this subject. Now, I push myself to solve 3-5 problems a week, with a difficulty ranging from 7 to 15 points on DMOJ. </p>
+                <h1>Some Problems</h1>
+                <h2>Euclidean Sieve</h2>
+                <p>The Euclidean sieve, otherwise known as the sieve of Erathosthenes, is a method that allows for computing all primes from 1 to any arbitrary integer n in O(n) time. This works by creating an boolean array of size n+1, then setting all elements to true except the first 2. Following this, we iterate through the array, given that if the current element is true, then we mark all multiples of this index as false, and do nothing if it is false. Each element in the resulting array is true if and only if the corresponding index is a prime. This algorithm involves intelligent factor manipulation, guaranteeing that all multiples are removed. Below is a visual demonstration of this process of crossing out numbers. The darkened colors are the primes, the light ones are the multiples of that corresponding prime number. </p>
+                <p>Below is my implementation of the Sieve of Erathosthenes for <a href = "https://dmoj.ca/problem/primes2" target = "_blank">this</a> DMOJ problem. </p>
+                <div class = "code">
+                    <pre>
+Scanner s = new Scanner(System.in);
+int small = s.nextInt();
+int large = s.nextInt();
+boolean[] arr = new boolean[large-small+1];
+
+for(int i = small % 2;i < arr.length;i+=2){
+    if(i + small != 2){
+    arr[i] = true;
+    }
+}
+
+for(int i = 3;i <= Math.sqrt(large);i+=2){
+    for(int j = i -(small % i);j < arr.length;j+=i){
+        if(j + small != i){
+            arr[j] = true;
+        }
+    }
+}
+
+for(int i = 0;i < arr.length;i++){
+    if(!arr[i]){
+        if( i + small != 1){
+            System.out.println(i + small);
+        }
+    }
+}</pre>
+                </div>
+                <div id = "fullCentered">
+                    <img src = "images/euclideanSieve.png">
+                </div>
+                <h2>Graph Theory(DFS)</h2>
+                <p>Graph theory is very common in competitive programming, where we're given a graph of connected nodes, and have to accomplish a task related to them. This often involves searching for all nodes connected to one specific node, either directly or via many different other nodes. One way to do this is with Depth First Search, or DFS. This searching algorithm involves moving further away from the original node until there are no more possible paths to be made. Then, the program moves to the most recent spot where there is another path, and performs DFS from that point. DFS is generally used in conjunction with a visited array that stores all nodes that have been visited, so we don't go down one path more than once. This is often used when we solve mazes, going as far as possible down one path until we reach a point where we cannot keep moving. Below is a visual example of DFS in a binary tree. </p>
+                <div id = "fullCentered">
+                    <img src = "images/DFS.png">
+                </div>
+                <h2>Knapsack Problem</h2>
+                <p>Imagine a situation where your house is on fire, and you only have a backpack to bring items out of your house. Your backpack can only store so much weight, but you're trying to maximize the value of the items. How would you do this?  </p>
+                <p>This is the problem that the knapsack problem intends to solve. Instead of brute force trying every possible combination, we can create a 2D array, one with the maximum weight capacity of the backpack and the other with the number of objects. This array now allows for us to compute the maximum value we can obtain with less objects and/or less total weight. The first row is relatively simple to populate, with only one item. For the remaining elements, we populate them row by row, considering the maximum value between taking and not taking this new item. This is accomplished by looking at the previous row, subtracting the weight of our new object from the tile we're trying to populate, or considering the same weight but not taking this new item. </p>
+                <div id = "fullCentered">
+                    <img src = "images/knapsack.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="website">ICS 4U Website</div>
+        <div class="signature">Created by Brian Zhang</div>
+    </footer>
+</body>
+<script>
+    document.addEventListener('scroll', () => {
+        const header = document.getElementById('navbar');
+        if(window.scrollY > 0){
+            header.classList.add('darken');
+        }else{
+            header.classList.remove('darken');
+        }
+    })
+</script>
+
+
+</html>

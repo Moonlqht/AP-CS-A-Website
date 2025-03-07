@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brian Zhang's ICS 4U Website</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('images/background.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="navbar">
+        <div class = "logo">
+            <a href = "index.html">Brian Zhang</a>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Tutorials</button>
+                    <div class="dropdown-content">
+                        <a href="oop.html">OOP</a>
+                        <a href="arrays.html">Arrays</a>
+                        <a href="arraylists.html">ArrayLists</a>
+                        <a href="searchsort.html">Search & Sort</a>
+                        <a href="recursion.html">Recursion</a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="references.html">References</a></li>
+            <li><a href = "competitiveProgramming.html">Competitive Programming</a></li>
+            <li><a href="aboutme.html">About me</a></li>
+        </ul>
+    </header>
+    <div class = "content">
+        <div class = "title">Object-Oriented Programming</div>
+        <div class = "box">
+            <div id = "full">
+                <p>Object-oriented programming, or OOP is a type of programming revolving around the use of objects. OOP specializes in the use of classes, which are code blocks that perform a similar task each time they're called, or an object is created with them. </p>
+                <h1>Classes and Objects</h1>
+                <p>In real life, objects are things that have an identity, state, and behavior. This means that each object is different and has different states, and each object can do something or can have something done to it. </p>
+                <p>Java objects are similar in the sense that they also have an identity, state, and behavior. Their identity is their location in memory, states are the instance variables or attributes, and behaviors are the methods or things that allow the object to do something or have something done to them. </p>
+                <p>For instance, a cookie cutter can be a class, while a cookie is an object. The cookie cutter creates the cookie and gives attributes to it like its shape, however, there are properties specific to both the cookie cutter and the cookie that are not shared, like material. </p>
+                <h1>Static vs Instance</h1>
+                <p>As mentioned above, the cookie cutter and the actual cookie are two different objects and can do different things, so how do we differentiate between them? </p>
+                <p>The static keyword is added when referring to something specifically related to the class, while there is no keyword when referring to something related to the object, the thing created by the class. Below is an example. </p>
+                <div id = "fullCentered">
+                    <img src = "images/cookie.png">
+                </div>
+                <div class = "code">
+                    <pre>
+static String material = "Stainless Steel"; // Material of the cutter
+String[] ingredients = {"Chocolate chips", "Cookie dough", "Sugar"}; // Ingredients of the cookie</pre>
+                </div>
+                <h1>Attributes and Methods</h1>
+                <p>As we mentioned before, objects have states and behaviors, properties of the object, and things that it can do/can be done to it. In Java, the attributes are the states, so for our cookie example, the ingredients would be one of the attributes, one of the instance variables specific to this cookie. If we had a method that cuts the cookie in half, that would be a behavior, or what we call a method in Java, as something is being done to the cookie. </p>
+                <h1>Constructors</h1>
+                <p>With the class given, we can construct an object with a constructor, or a method called with the <b>new</b> keyword to create an object. The constructor often takes in parameters, to give specific values to the instance variables. In our cookie example, we could change the ingredients list in the constructor. </p>
+            </div>
+        </div>
+
+        <div class = "title">Inheritance</div>
+        <div class = "box">
+            <div id = "full">
+                <p>In real life, inheritance is when a child retains certain attributes of the parents. In some cases, some common characteristics can also occur, like hereditary conditions.</p>
+                <p>In Java, child classes can also inherit attributes and methods from its parent class, however, only the public attributes and methods can be accessed in the child class, otherwise known as the subclass.</p>
+                <div id = "fullCentered">
+                    <img src = "images/inheritance.png">
+                </div>
+                <h1>Behavior</h1>
+                <p>When inheritance occurs, all public methods and attributes are accessible. However, what if the subclass has a method of the same name as the superclass? This is where overriding occurs. By default, the subclass method will be called. To access the parent class' method, one would use the keyword super. When creating a subclass, one calls the super() method as the first line of the constructor to instantiate a corresponding superclass to inherit methods and attributes. If it is not present, then the no-argument constructor is implicitly called. </p>
+                <p>Below is an example of two classes, a superclass and a subclass. </p>
+                <div class = "code">
+                    <pre>
+public class Ball{
+    private String color;
+    private int smoothness;
+    private double diameter;
+    private int posX;
+    private int posY;
+    public Ball(){
+        //Implementation not shown
+    }
+
+    public void roll(int speedX, int speedY){
+        //Implementation not shown
+    }
+
+    public void repaint(String color){
+        //Implementation not shown
+    }
+
+    public void adjustPosition(int x, int y){
+        //Implementation not shown
+    }
+}</pre>
+                </div>
+                <div class = "code">
+                    <pre>
+public class TennisBall extends Ball{
+    private String lineColors;
+    private int fuzziness;
+    private int posZ;
+    public TennisBall(){
+        super();
+        //Implementation not shown
+    }
+
+    public void hit(int speedX, int speedY, int speedZ){
+        //Implementation not shown
+    }
+
+    public void bounce(int speedY){
+        //Implementation not shown
+    }
+}</pre>
+                </div>
+                <p>This code snippet shows a generic ball class, but then a more detailed class involving a tennis ball. There are certain aspects of a tennis ball specific to it, for instance, the lines and the fuzziness of a tennis ball that isn't in a generic ball. </p>
+                <p>All the public methods and public instance variables(there are none) are inherited by the subclass, making them directly accessible. However, the private variables would have to be accessed and altered via accessors and mutators, and private methods would not be accessible at all. This is generally for security, as the user can't screw something up by changing these values during operation. Additionally, notice that the subclass has some extra methods and instance variables, otherwise known as fields! These are specific to the tennis ball and are not necessarily in any ball, which is why they're under the tennis ball, instead of the generic ball. </p>
+                <h1>Relationships</h1>
+                <h2>Is-A</h2>
+                <p>An Is-A relationship is very simple, in essence, a subclass is a superclass, but a superclass is not a subclass. The subclass is a superclass, just a more detailed version of it. From our tennis ball example above, a tennis ball Is-A generic ball, but a generic ball is not a tennis ball. </p>
+                <h2>Has-A</h2>
+                <p>This is a relationship between the attributes of an object and the object itself. For instance, you could say a ball has a color, but saying something like a ball is a color or color is a ball wouldn't be very logical. </p>
+            </div>
+        </div>
+
+        <div class = "title">Polymorphism</div>
+        <div class = "box">
+            <div id = "full">
+                <p>Polymorphism literally means "Occurring in many forms". This is a good description for the term in Java too, as it allows for different implementation of classes in different subclasses. This can either be accomplished via inheritance or using abstract classes and interfaces, which will be explained at the end of this section. </p>
+                <h1>Derived Classes</h1>
+                <p>To allow polymorphism to occur, we can create an object with the parent type out of the child class'. For example, if we had a Ball class and subclasses TennisBall and SoccerBall, the following would be valid ways to create a Ball object. </p>
+                <div class = "code">
+                    <pre>
+Ball tb = new TennisBall();
+Ball sb = new SoccerBall();</pre>
+                </div>
+                <p>However, you cannot create a parent class with a child class, or child classes with other child classes. The following lines of code are invalid ways to create objects.  </p>
+                <div class = "code">
+                    <pre>
+TellsBall tb = new Ball();
+SoccerBall sb = new TennisBall();</pre>
+                </div>
+                <div id = "fullCentered">
+                    <img src = "images/polymorphism.png">
+                </div>
+                <h1>Static and Dynamic Binding</h1>
+                <p>Have you ever noticed that sometimes your code crashes on compilation, and sometimes it only crashes after execution, after some of the code has been executed? This is the difference between static and dynamic binding. </p>
+                <p>Static binding is when code is determined whether or not code compiles using type information, so type mismatch exceptions. This is determined at compile time.</p>
+                <p>Dynamic binding is for determining whether or not code compiles during runtime. In dynamic binding, objects are used to resolve for binding, so errors in method runs like ArrayIndexOutOfBoundsException would be thrown. </p>
+                <h1>Abstract Classes</h1>
+                <p>Some classes are created so that the elements are defined as abstract, with the abstract keyword. This means the methods only have a name and nothing else, no implementation. The implementation is specific for each subclass. </p>
+                <p>Since not all methods are fully defined in abstract methods, Java doesn't allow us to instantiate or create an object with an abstract class. On the contrary, the classes we're used to working with are concrete. </p>
+                <h1>Interfaces</h1>
+                <p>Interfaces in Java are similar to classes, but the main difference is that for interfaces, all methods are abstract and there are no fields or instance variables defined in interfaces. </p>
+                <p>Unlike abstract classes, a class can also implement many interfaces. This allows for code segments to be used in combination with each other as "building blocks". This is useful when we want different functionality of the same method, using classes derived from an interface. Interfaces are generally used as the data type of a parameter, allowing for a general method call to be used in a specific way depending on what derived class was passed in. </p>
+            </div>
+        </div>
+        <div class = "title">Example</div>
+        <div class = "box">
+            <div id = "full">
+                <p>In this unit, we created a fantasy game that used interfaces to create all the rooms and the creatures in our game. A lot of downcasting was required to determine the type of creature when entering a room. Something I had to be careful about when using interfaces and abstract classes is that I have to have an implementation of all the abstract classes, as the program would not compile otherwise. Additionally, when passing in a general character, it is important that we have to downcast our general character into a specific elf, goblin, or dwarf for the program to do things specific to each creature. </p>
+                <p>Below are implementations of the Character interface and part of the goblin and dwarf classes which showcase the differences between our creatures. </p>
+                <div class = "code">
+                    <pre>
+interface Character{
+    int takeGold(int available);
+    void addGold(int amount);
+    void loseGold(int amount);
+    void gainHealth(int amount);
+    void loseHealth(int amount);
+    String getName();
+    int getGold();
+    int getHealth();
+}</pre>
+
+<pre>
+public class Goblin implements Character{
+    ...
+    public int takeGold(int available) {
+        int taken = 0;
+        
+        if (available + gold <= maxGold) {
+            taken = available;
+            gold += available;
+        } else {
+            taken = maxGold - gold;
+            gold = maxGold;	
+        }
+        
+        System.out.println(getName() + " takes " + taken
+         + " gold. Gold = " + gold + " bars");
+        
+        return available - taken;
+    }
+}</pre>
+
+<pre>
+public class Dwarf implements Character{
+    ...
+    public int takeGold(int available) {
+        int taken = available;
+
+        gold += synthesizeGold(available);
+		
+        System.out.println(getName() + " takes " + taken
+        + " gold and doubles it. Gold = " + gold + " bars");
+		
+        return 0;
+    }
+
+    public int synthesizeGold(int amount) {
+        return (int)(amount*(1.5 + Math.random()/2));
+    }
+}</pre>
+                </div>
+                <p>This shows the difference between the takeGold methods in the two classes. One issue I had when implementing the program was that I'd take a generic Character in as a parameter, but I couldn't access the synthesizeGold method. This issue was solved by determining the type of the Character, then casting it to the appropriate type, passing it in as the parameter of an overloaded method in each room class. </p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="website">ICS 4U Website</div>
+        <div class="signature">Created by Brian Zhang</div>
+    </footer>
+</body>
+<script>
+    document.addEventListener('scroll', () => {
+        const header = document.getElementById('navbar');
+        if(window.scrollY > 0){
+            header.classList.add('darken');
+        }else{
+            header.classList.remove('darken');
+        }
+    })
+</script>
+
+
+</html>

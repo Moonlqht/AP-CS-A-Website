@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brian Zhang's ICS 4U Website</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('images/background.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="navbar">
+        <div class = "logo">
+            <a href = "index.html">Brian Zhang</a>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Tutorials</button>
+                    <div class="dropdown-content">
+                        <a href="oop.html">OOP</a>
+                        <a href="arrays.html">Arrays</a>
+                        <a href="arraylists.html">ArrayLists</a>
+                        <a href="searchsort.html">Search & Sort</a>
+                        <a href="recursion.html">Recursion</a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="references.html">References</a></li>
+            <li><a href = "competitiveProgramming.html">Competitive Programming</a></li>
+            <li><a href="aboutme.html">About me</a></li>
+        </ul>
+    </header>
+    <div class = "content">
+        <div class = "box">
+            <div id = "references">
+                <h1>References</h1>
+                <p>Google. (2023, January 18). The Knapsack Problem | OR-Tools. Google for Developers. </p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retrieved April 30, 2024, from https://developers.google.com/optimization/pack/knapsack</p>
+                <p>Jain, S. (2024, February 16). Depth First Search or DFS for a Graph. GeeksforGeeks.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retrieved April 30, 2024, from https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/</p>
+                <p>Jain, S. (2024, March 6). Sieve of Eratosthenes. GeeksforGeeks.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retrieved April 30, 2024, from https://www.geeksforgeeks.org/sieve-of-eratosthenes/</p>
+                <p>Jain, S. (2024, March 14). Arrays in Java. GeeksforGeeks.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retrieved April 30, 2024, from https://www.geeksforgeeks.org/arrays-in-java/</p>
+                <p>Javatpoint. (n.d.). Binary Search - javatpoint. Javatpoint.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retrieved April 30, 2024, from https://www.javatpoint.com/binary-search</p>
+                <p>Oracle Help Center. (n.d.). ArrayList (Java Platform SE 8 ). Oracle Help Center.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retrieved April 30, 2024, from https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html</p>
+                <p>W3Schools. (n.d.). Java Inheritance (Subclass and Superclass). W3Schools.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retrieved April 30, 2024, from https://www.w3schools.com/java/java_inheritance.asp</p>
+                <p>W3Schools. (n.d.). Java OOP (Object-Oriented Programming). W3Schools.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retrieved April 30, 2024, from https://www.w3schools.com/java/java_oop.asp</p>
+                <p>W3Schools. (n.d.). Java Polymorphism. W3Schools.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retrieved April 30, 2024, from https://www.w3schools.com/java/java_polymorphism.asp</p>
+                <p>Yaroslavskiy, V., Bentley, J., & Bloch, J. (n.d.). Arrays (Java Platform SE 8 ). Oracle Help Center.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retrieved April 30, 2024, from https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="website">ICS 4U Website</div>
+        <div class="signature">Created by Brian Zhang</div>
+    </footer>
+</body>
+<script>
+    document.addEventListener('scroll', () => {
+        const header = document.getElementById('navbar');
+        if(window.scrollY > 0){
+            header.classList.add('darken');
+        }else{
+            header.classList.remove('darken');
+        }
+    })
+</script>
+
+
+</html>

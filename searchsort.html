@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brian Zhang's ICS 4U Website</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('images/background.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="navbar">
+        <div class = "logo">
+            <a href = "index.html">Brian Zhang</a>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Tutorials</button>
+                    <div class="dropdown-content">
+                        <a href="oop.html">OOP</a>
+                        <a href="arrays.html">Arrays</a>
+                        <a href="arraylists.html">ArrayLists</a>
+                        <a href="searchsort.html">Search & Sort</a>
+                        <a href="recursion.html">Recursion</a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="references.html">References</a></li>
+            <li><a href = "competitiveProgramming.html">Competitive Programming</a></li>
+            <li><a href="aboutme.html">About me</a></li>
+        </ul>
+    </header>
+    <div class = "content">
+        <div class = "title">Search & Sort</div>
+        <div class = "box">
+            <div id = "full">
+                <p>How many comparisons does it take to find a certain element in an array, or determine whether or not it is in the array? Many would be tempted to say that the obvious answer is the length of the array - you have to compare each element to the target. However, this is not necessarily the case. In fact, with the right searching algorithms, it can take substantially less time. If n is the length of the array, instead of n comparisons at worst, the worst-case scenario is only log<sub>2</sub>(n). </p>
+                <h1>Big O notation</h1>
+                <p>Let's not get ahead of ourselves. Firstly, let's understand how the speed or efficiency of a program is calculated. This is usually measured by the typical-case number of comparisons that need to be made, expressed as an expression of n, the length of an array. </p>
+                <p>For instance, the searching algorithm mentioned above is called sequential search, with a time complexity of O(n). </p>
+                <h1>Sorting</h1>
+                <h2>Insertion Sort</h2>
+                <p>Insertion sort has a very simple premise - we assume the first k elements are sorted, then we take the k+1 th element, we can insert it into the sorted portion of the array with any searching algorithm, and continue until the entire array is sorted. </p>
+                <p>The time complexity of this sorting algorithm is O(n<sup>2</sup>), with one iteration to sort each element of the array, and another iteration to shift each element into place. This gives us our worst-case, where the array starts backward. </p>
+                <div id = "fullCentered">
+                    <img src = "images/insertionsort.png">
+                </div>
+                <h2>Selection Sort</h2>
+                <p>Selection sort is also an O(n<sup>2</sup>) algorithm, sharing some similarities to insertion sort. It assumes that the k smallest elements of the array are already sorted as the first k elements of the array. Then, the program looks for the k+1 smallest element in the array, swapping the value with the k+1 th index of the array. This process continues until the entire array is sorted. </p>
+                <p>The time complexity in this scenario makes sense. This is essentially the opposite of insertion sort, searching the unsorted portion of the array instead of the sorted one. However, it is important to note that the best-case time complexity of selection sort is also O(n<sup>2</sup>), as no matter what, the entire unsorted array has to be traversed through to find the smallest element. </p>
+                <div id = "fullCentered">
+                    <img src = "images/selectionsort.jpg">
+                </div>
+                <h2>Quick Sort</h2>
+                <p>Is O(n<sup>2</sup>) really the fastest a sorting algorithm can get? If it is, wouldn't sequential search be worth it in most situations?</p>
+                <p>Well, no it's not. Quick sort, is a sorting algorithm that utilizes the divide-and-conquer strategy to sort an array, with time complexity O(nlogn). </p>
+                <p>To sort an array using quick sort, we choose an element in that portion of the array as a pivot. Then, we group all elements greater than the pivot to one side, and the others to the other side of the pivot, adjusting the pivot accordingly. The quick sort method is then recursively called on the two sides of the pivot, hence the divide and conquer aspect of this sorting algorithm. </p>
+                <p>The time complexity of this sorting algorithm comes from the fact that in the best-case scenario perfectly partitions the array in two each time, so log<sub>2</sub> “layers” recursive calls of this method are needed to fully sort the array. A layer is where all elements are sorted exactly once. This gives its time complexity of O(nlogn).</p>
+                <div id = "fullCentered">
+                    <img src = "images/quicksort.png">
+                </div>
+                <h2>Merge Sort</h2>
+                <p>Merge sort, like quick sort, is also a relatively fast sorting algorithm. In fact, merge sort is even faster than quick sort, with the worst-case time complexity of merge sort also at O(nlogn).</p>
+                <p>Similar to quick sort, merge sort also uses a divide-and-conquer strategy to sort portions of the array, and then merge them back together. However, the difference is that merge sort recursively divides arrays in half until they have length 1. Since arrays of length 1 are always sorted, we are left with sorted arrays. The program then merges them together, comparing the first element of each array to look for the smaller element, and placing it into the sorted array.</p>
+                <p>That sounds amazing, right? A sorting algorithm that has the worst-case time complexity of O(nlogn). However, merge sort uses a lot of memory compared to other sorting algorithms. In fact, it requires O(n) space complexity compared to O(logn) space complexity for quicksort, and O(1) for insertion and selection sort. This makes merge sort viable when speed is all that we’re looking for, space is not a concern.</p>
+                <div id = "fullCentered">
+                    <img src = "images/mergesort.png">
+                </div>
+                <h1>Searching</h1>
+                <h2>Sequential Search</h2>
+                <p>Sequential search is the searching algorithm mentioned above, where we search for each element of the array, and return the index once found, or if it's not found. </p>
+                <h2>Binary Search</h2>
+                <p>Binary search is a much faster search algorithm that utilizes the fact that the array is sorted. This searching algorithm cuts the array in half, determining which half the desired element is. This process is then repeated on each remaining half of the array, cutting it in half each time to determine where the desired element is. </p>
+                <p>Since this searching algorithm involves cutting the array in half each iteration, the time used is O(logn), which is much faster than sequential search. For instance, with an array of length 1 million, sequential search requires 1 million comparisons worst-case, compared to 20 for binary search. </p>
+                <div id = "fullCentered">
+                    <img src = "images/bserach.png">
+                </div>
+                <h1>Common Mistakes</h1>
+                <p>Although there aren't many ways to crash your program via sorting and searching algorithms, there still are some things to be aware of. Firstly, applying binary search to an array that is not sorted would almost always yield a wrong result. Secondly, when you have a custom comparison algorithm, Java's built-in sorting and searching methods would not work as intended. </p>
+                <p>However, it is still possible to crash the program with a sorting algorithm - when the length of the array that is to be sorted is 0, sorting the program via merge sort would cause an infinite loop when splitting the array in two, never reaching the base-case with an array of length 1. </p>
+                <p>Finally, some sorting algorithms can be unstable, in that the order of elements with the same value can be reversed at times. This could be problematic for some data sets, so it's important to use a stable sorting algorithm when necessary. Remember, it doesn't matter how fast your sorting algorithm is if it doesn't work!</p>
+                <h1>Example</h1>
+                <p>The assignment for this unit was to create a program that sorts the data of various students based on different criteria. I used insertion sort to accomplish this, along with a custom comparator for each attribute of the students. Sorting the array would change the position of the data of each student in all arrays. Below is a link to the code for sorting students by grade. </p>
+                <div class = "code">
+                    <pre>
+for(int i = 1;i < names.length;i++){
+    //Temporary variables to store the grade and 
+    //name of the student to insert into the sorted part of the array
+    String comp = names[i];
+    int temp = grades[i];
+    //Looping back to check where the value should be inserted
+    for(int j = 0;j < i;j++){
+        if(temp > grades[j]){
+        //Shifting everything
+        for(int k = i-1;k >= j;k--){
+            names[k+1] = names[k];
+            grades[k+1] = grades[k];
+        }
+        names[j] = comp;
+        grades[j] = temp;
+        break;
+        }
+    }
+}</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="website">ICS 4U Website</div>
+        <div class="signature">Created by Brian Zhang</div>
+    </footer>
+</body>
+<script>
+    document.addEventListener('scroll', () => {
+        const header = document.getElementById('navbar');
+        if(window.scrollY > 0){
+            header.classList.add('darken');
+        }else{
+            header.classList.remove('darken');
+        }
+    })
+</script>
+
+
+</html>

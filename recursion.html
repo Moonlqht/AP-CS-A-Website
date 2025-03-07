@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brian Zhang's ICS 4U Website</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('images/background.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="navbar">
+        <div class = "logo">
+            <a href = "index.html">Brian Zhang</a>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Tutorials</button>
+                    <div class="dropdown-content">
+                        <a href="oop.html">OOP</a>
+                        <a href="arrays.html">Arrays</a>
+                        <a href="arraylists.html">ArrayLists</a>
+                        <a href="searchsort.html">Search & Sort</a>
+                        <a href="recursion.html">Recursion</a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="references.html">References</a></li>
+            <li><a href = "competitiveProgramming.html">Competitive Programming</a></li>
+            <li><a href="aboutme.html">About me</a></li>
+        </ul>
+    </header>
+    <div class = "content">
+        <div class = "title">Recursion</div>
+        <div class = "box">
+            <div id = "full">
+                <p>Programming is very dynamic - it allows the programmer to do virtually anything. Methods are sections of code that accomplish a specific task. They can also call other methods, including themselves. This concept of methods calling themself is called recursion. </p>
+                <h1>Theory</h1>
+                <p>There are three basic principles of recursion: </p>
+                <ol>
+                    <li>A recursive method must call itself</li>
+                    <li>A recursive method must have a base case</li>
+                    <li>A recursive method must move  the base case</li>
+                </ol>
+                <p>In essence, what recursion does is that it splits a complex problem into smaller subproblems to solve. These subproblems are then solved(usually with recursion), splitting them down until we have something that's called a base case - a situation that will always be reached, and has a trivial solution. This means that each time the method is called, a smaller subproblem is being solved. </p>
+                <h1>Recursion vs Iteration</h1>
+                <p>Iterative implementations of a problem generally consist of a for loop. This loop then works its way up from the bottom, computing each step along the way. Recursion, on the other hand, solves the problem in terms of previous terms first, then goes ahead to compute the previous terms, which is a top-down approach compared to the bottom-up approach of iteration. </p>
+                <p>Below is an example of iterative Fibonacci code, compared to recursive Fibonacci code. </p>
+                <div class = "code">
+                    <pre>
+// Recursive implementation
+public int Fibonacci(int num){
+    if(num == 0){
+        return 0;
+    }else if(num == 1){
+        return 1;
+    }
+    return Fibonacci(num-1) + Fibonacci(num-2);
+}</pre>
+                <pre>
+// Iterative implementation
+public int Fibonacci(int num){
+    int num1 = 0;
+    int num2 = 1;
+    for(int i = 0; i < num-1; i++){
+        int temp = num2;
+        num2 = num1 + num2;
+        num1 = temp;
+    }
+    return num2;
+}</pre>
+                <div id = "fullCentered">
+                    <img src = "images/Fibonacci.png">
+                </div>
+                </div>
+                <p>The top-down vs bottom-up approach of the two is prevalent here, the iterative version started from 0 while the recursive one started from the term we want to calculate. </p>
+                <h1>Common Mistakes</h1>
+                <p>Common mistakes in code that uses recursion include: </p>
+                <ol>
+                    <li>The absence of a base case</li>
+                    <li>Not moving towards the base case</li>
+                    <li>Assuming the compiler has unlimited memory</li>
+                </ol>
+                <p>All of these issues generally have the same ending, when the compiler throws a StackOverflowException, which essentially means recursion depth exceeded, or that the compiler no longer has memory to allocate to running the program. Thinking from a high-level, it makes sense that this would happen, as if we don't reach the base case or take too long to reach it, too much memory will be used in each method call. The compiler will not allow the user to use infinite memory, causing it to crash the program. </p>
+                <h1>Example</h1>
+                <p>The following code segment is my code for one of the recursion exercises, where we were to use recursion to expand a word by adding hyphens between each pair of characters, using recursion. </p>
+                <div class = "code">
+                    <pre>
+public String expand(String word){
+    if(word.length() == 1){
+        return word;
+    }
+    return word.charAt(0) + "-" + expand(word.substring(1));
+}</pre>
+                </div>
+                <p>In this code segment, we move towards the base case by making the word we're checking shorter. The base case is when the string is 1 character long, where we just return that string. </p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="website">ICS 4U Website</div>
+        <div class="signature">Created by Brian Zhang</div>
+    </footer>
+</body>
+<script>
+    document.addEventListener('scroll', () => {
+        const header = document.getElementById('navbar');
+        if(window.scrollY > 0){
+            header.classList.add('darken');
+        }else{
+            header.classList.remove('darken');
+        }
+    })
+</script>
+
+
+</html>
